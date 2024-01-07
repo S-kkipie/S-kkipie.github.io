@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+    <div class="menu">
+        <h1>Snake</h1>
+        <p id="points">Puntos: 0</p>
+        <input id="velocidadI" type="text" value="500">
+        <input id="longitudI" type="text" value="4">
+        <button class="glow-on-hover" id="startGame">Empezar a jugar</button>
+        <p>Made by Skkippie</p>
+    </div>
+    <div class="game"> <canvas style="display:none;" id="snake"></canvas>
+        <div class="buttons">
+            <button class="button " style="display:none;--color: #ff1867;" id="left">
+                <i class='bx bx-arrow-back'></i>
+            </button>
+            <button class="button " style="display:none;--color:#ffe91e;" id="up">
+                <i class='bx bx-up-arrow-alt'></i>
+            </button>
+            <button class="button " style="display:none;--color:#1e9bff;" id="down">
+                <i class='bx bx-down-arrow-alt'></i>
+            </button>
+            <button class="button " style="display:none;--color: #6eff3e;" id="right">
+                <i class='bx bx-right-arrow-alt'></i>
+            </button>
+        </div>
+
+        <div class="popup" id="popup">
+            <img src="img/tick.png" alt="">
+            <h1>Perdiste!!!</h1>
+            <h2 id="Texto"></h2>
+            <button class="glow-on-hover" type="button" onclick="closePopup()">Jugar de nuevo</button>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>
