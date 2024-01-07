@@ -73,7 +73,7 @@ body .game .buttons {
     left: 50%;
     transform: translate(-50%, -50%) scale(0.1);
     text-align: center;
-    padding: 0 30px 60px;
+    padding: 30px;
     color: rgb(146, 1, 1);
     visibility: hidden;
     transition: all 0.4s ease-in-out;

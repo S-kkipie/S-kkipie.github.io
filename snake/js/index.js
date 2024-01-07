@@ -31,14 +31,28 @@ canvas.width = 545;
 canvas.height = 550;
 const ctx = canvas.getContext("2d");
 function gameStart(velocidad, longitudInicial) {
-    function dibujarCarita(x, y) {
-        // Ojos
+    function dibujarCaritaFeliz(x, y) {
         ctx.beginPath();
         ctx.arc(x + 50 / 3, y + 50 / 3, 50 / 10, 0, Math.PI * 2);
         ctx.arc(x + 50 * 2 / 3, y + 50 / 3, 50 / 10, 0, Math.PI * 2);
-        ctx.fillStyle = 'white'; // Cambia el color según tus preferencias
+        ctx.fillStyle = 'white';
         ctx.fill();
+    }
+    function dibujarCaritaMuerta(x, y) {
+        dibujarOjo(x + 15, y + 15);
+        dibujarOjo(x + 35, y + 15);
 
+        function dibujarOjo(cx, cy) {
+            ctx.beginPath();
+            ctx.moveTo(cx - 5, cy - 5);
+            ctx.lineTo(cx + 5, cy + 5);
+            ctx.moveTo(cx + 5, cy - 5);
+            ctx.lineTo(cx - 5, cy + 5);
+            ctx.strokeStyle = 'white'; // Establece el color de la línea
+            ctx.lineWidth = 2; // Establece el grosor de la línea
+            ctx.stroke(); // Dibuja las líneas
+            ctx.closePath();
+        }
     }
     let points = 0;
     let fotograma = 0;
@@ -183,10 +197,7 @@ function gameStart(velocidad, longitudInicial) {
                 velocidad -= velocidad / 7;
             }
         }
-        if (colisionCuerpoObjeto(snake.snakeBody[0])) {
-            openPopup();
-            return false;
-        }
+
 
         snake.snakeBody.forEach((value, index) => {
             if (snake.snakeBody[index].y1 < 0) {
@@ -207,7 +218,14 @@ function gameStart(velocidad, longitudInicial) {
         snake.snakeBody.forEach((value, index) => {
             ctx.fillRect(snake.snakeBody[index].x1, snake.snakeBody[index].y1, 50, 50);
         });
-        dibujarCarita(snake.snakeBody[0].x1, snake.snakeBody[0].y1);
+        if (colisionCuerpoObjeto(snake.snakeBody[0])) {
+            dibujarCaritaMuerta(snake.snakeBody[0].x1, snake.snakeBody[0].y1);
+            openPopup();
+            velocidad = 0.000001;
+        } else {
+            dibujarCaritaFeliz(snake.snakeBody[0].x1, snake.snakeBody[0].y1);
+
+        }
 
         ctx.fillStyle = "red";
         ctx.fillRect(fruta.x1, fruta.y1, 50, 50);
