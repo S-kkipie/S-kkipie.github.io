@@ -216,7 +216,7 @@ function gameStart(velocidad, longitudInicial) {
         console.log(fotograma++);
         setTimeout(() => {
             requestAnimationFrame(animation);
-        }, velocidad);
+        }, 1000 / velocidad);
 
     }
     function colisionCuerpoObjeto(algo) {
