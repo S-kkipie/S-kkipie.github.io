@@ -153,6 +153,9 @@ section{ padding-block:var(--s-3xl); border-top:2px solid var(--ink); }
 .award .a-name{ font-family:var(--font-display); font-weight:500; font-size:clamp(1.05rem,2.2vw,1.4rem); letter-spacing:-.01em; min-width:0; }
 .award .a-name small{ display:block; font-family:var(--font-body); font-weight:400; font-size:.86rem; color:var(--ink-2); margin-top:.15rem; letter-spacing:0; }
 .award .a-yr{ font-family:var(--font-mono); font-size:.85rem; color:var(--ink-2); font-variant-numeric:tabular-nums; }
+a.award{ cursor:pointer; }
+.award .a-arrow{ opacity:0; margin-left:.4rem; color:var(--red-deep); transition:opacity .25s var(--ease); }
+a.award:hover .a-arrow{ opacity:1; }
 @media (max-width:560px){ .award{ grid-template-columns:auto 1fr; } .award .a-yr{ grid-column:2; } }
 
 /* ---------- STACK ---------- */
@@ -212,16 +215,32 @@ section{ padding-block:var(--s-3xl); border-top:2px solid var(--ink); }
   .hero-shape{ transform:none; animation:none; }
   .work-item:hover .work-thumb img, .work-item:hover .work-thumb svg{ transform:none; }
 }
+
+/* --- pro UX motion layer --- */
+.progress{ position:fixed; top:0; left:0; height:3px; width:100%; background:var(--red); transform:scaleX(0); transform-origin:0 50%; z-index:60; will-change:transform; }
+.rise{ transition:opacity .6s var(--ease), transform .6s var(--ease), filter .6s var(--ease); filter:blur(4px); }
+.rise.in{ filter:blur(0); }
+.work-item.rise .work-thumb{ clip-path:inset(0 100% 0 0); transition:clip-path .8s var(--ease); }
+.work-item.rise.in .work-thumb{ clip-path:inset(0 0 0 0); }
+.btn:active{ transform:translateY(1px) scale(.99); }
+.mag{ transition:transform .35s var(--ease), background .18s var(--ease), color .18s var(--ease); }
+@media (prefers-reduced-motion: reduce){
+  .progress{ display:none; }
+  .rise{ filter:none; }
+  .work-item.rise .work-thumb, .work-item.rise.in .work-thumb{ clip-path:none; transition:none; }
+  .mag{ transition:none; }
+}
 </style>
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
 
 <header class="mast">
   <div class="wrap mast-in">
     <a href="#top" class="wordmark">Adrian Issac</a>
     <div class="mast-right">
       <span class="clock"><span class="dot"></span><span class="role">AI Product Builder · Arequipa </span><time id="clock">--:--</time></span>
-      <a class="btn btn-solid" href="mailto:issacysofia@gmail.com?subject=Freelance%20project">Hire me</a>
+      <a class="btn btn-solid mag" href="mailto:issacysofia@gmail.com?subject=Freelance%20project">Hire me</a>
     </div>
   </div>
 </header>
@@ -235,8 +254,8 @@ section{ padding-block:var(--s-3xl); border-top:2px solid var(--ink); }
       <h1 class="title enter d1">I build AI agents that <span class="box">ship.</span></h1>
       <p class="hero-lead enter d2">AI Product Builder &amp; full-stack engineer. I take AI products from <b>idea to go-to-market</b>. LLM orchestration on the backend, the interface people actually use up front. Find a real problem, prototype in hours, ship the whole thing.</p>
       <div class="hero-cta enter d3">
-        <a class="btn btn-solid btn-lg" href="mailto:issacysofia@gmail.com?subject=Let%27s%20build%20something">Start a project →</a>
-        <a class="btn btn-lg" href="#work">See the work</a>
+        <a class="btn btn-solid btn-lg mag" href="mailto:issacysofia@gmail.com?subject=Let%27s%20build%20something">Start a project →</a>
+        <a class="btn btn-lg mag" href="#work">See the work</a>
       </div>
       <div class="hero-foot enter d4">
         <span><b>Available</b> for freelance</span>
@@ -382,11 +401,11 @@ section{ padding-block:var(--s-3xl); border-top:2px solid var(--ink); }
         <div class="rec-count rise"><span class="rec-num">5×</span><span class="rec-word">First place</span></div>
       </div>
       <div class="awards">
-        <div class="award rise"><span class="award-badge">1ST</span><div class="a-name">IA-Hackathon GOV-TECH by Croma<small>Centinela, autonomous anti-corruption agent over Colombia's SECOP</small></div><span class="a-yr">2026</span></div>
-        <div class="award rise"><span class="award-badge">1ST</span><div class="a-name">JEBI AI Hackathon<small>Real-time crane hand-movement detection (YOLO + custom labeling), live dashboard</small></div><span class="a-yr">2026</span></div>
+        <a class="award rise" href="https://www.linkedin.com/posts/adrian-issac_govtech-inteligenciaartificial-anticorrupcion-activity-7495137379842768896-y2am" target="_blank" rel="noopener"><span class="award-badge">1ST</span><div class="a-name">IA-Hackathon GOV-TECH by Croma<small>Centinela, autonomous anti-corruption agent over Colombia's SECOP</small></div><span class="a-yr">2026<span class="a-arrow">↗</span></span></a>
+        <a class="award rise" href="https://www.linkedin.com/posts/adrian-issac_ai-computervision-yolo-activity-7469849279067557888-kZ9w" target="_blank" rel="noopener"><span class="award-badge">1ST</span><div class="a-name">JEBI AI Hackathon<small>Real-time crane hand-movement detection (YOLO + custom labeling), live dashboard</small></div><span class="a-yr">2026<span class="a-arrow">↗</span></span></a>
         <div class="award rise"><span class="award-badge">1ST</span><div class="a-name">InnovaTechWeek<small>VELA, Web3 lending connecting entrepreneurs to global investment</small></div><span class="a-yr">2026</span></div>
-        <div class="award rise"><span class="award-badge">1ST</span><div class="a-name">BCP Hackathon<small>Khipy, blockchain payments for rural areas with limited connectivity</small></div><span class="a-yr">2025</span></div>
-        <div class="award rise"><span class="award-badge">1ST</span><div class="a-name">CTF Admission Challenge · CiberSecUNI<small>Security / capture-the-flag</small></div><span class="a-yr">2025</span></div>
+        <a class="award rise" href="https://www.linkedin.com/posts/adrian-issac_pymetonbcp-transformaciaejndigital-inclusiaejnfinanciera-activity-7371593449327816704-ZCRJ" target="_blank" rel="noopener"><span class="award-badge">1ST</span><div class="a-name">BCP Hackathon<small>Khipy, blockchain payments for rural areas with limited connectivity</small></div><span class="a-yr">2025<span class="a-arrow">↗</span></span></a>
+        <a class="award rise" href="https://www.linkedin.com/posts/adrian-issac_cybersecurity-ctf-ethicalhacking-activity-7348441290277076993-UbHU" target="_blank" rel="noopener"><span class="award-badge">1ST</span><div class="a-name">CTF Admission Challenge · CiberSecUNI<small>Security / capture-the-flag</small></div><span class="a-yr">2025<span class="a-arrow">↗</span></span></a>
       </div>
     </div>
   </section>
@@ -411,10 +430,10 @@ section{ padding-block:var(--s-3xl); border-top:2px solid var(--ink); }
     <div class="wrap">
       <h2 class="sec-h rise">Experience</h2>
       <div class="exp">
-        <div class="exp-item rise"><div class="exp-when">2026 → Now</div><div><div class="exp-role">AI Product Manager <span>· MyWorkIn</span></div><p class="exp-desc">Define product specs and user stories, run code reviews, manage the Git workflow and PR approvals, keeping business objectives and dev deliverables aligned and shipping on time.</p></div></div>
-        <div class="exp-item rise"><div class="exp-when">2026 → Now</div><div><div class="exp-role">Full-Stack Developer <span>· CodeGuard</span></div><p class="exp-desc">Engineered a web-based static security analysis tool for GitHub repos, tuned for Next.js / React / TypeScript. Automated scanning for vulnerabilities and exposed secrets, privacy-first (analyzes code in memory).</p></div></div>
-        <div class="exp-item rise"><div class="exp-when">2024 → 2025</div><div><div class="exp-role">Full-Stack · Freelance <span>· Health-care</span></div><p class="exp-desc">Delivered a full educational platform in Next.js: front and back end. Optimized performance and load times, built responsive, scalable interfaces.</p></div></div>
-        <div class="exp-item rise"><div class="exp-when">2023 → 2024</div><div><div class="exp-role">Front-End Developer <span>· No Country</span></div><p class="exp-desc">Designed and optimized the front-end for the MasterAula education platform. Built high-conversion landing pages, collaborated in agile teams on UX and quality.</p></div></div>
+        <div class="exp-item rise"><div class="exp-when">2026 → Now</div><div><div class="exp-role">AI Product Manager <span>· MyWorkIn</span></div><p class="exp-desc">Define product specs and user stories, run code reviews, manage the Git workflow and PR approvals, keeping business objectives and dev deliverables aligned and shipping on time.</p></div></a>
+        <div class="exp-item rise"><div class="exp-when">2026 → Now</div><div><div class="exp-role">Full-Stack Developer <span>· CodeGuard</span></div><p class="exp-desc">Engineered a web-based static security analysis tool for GitHub repos, tuned for Next.js / React / TypeScript. Automated scanning for vulnerabilities and exposed secrets, privacy-first (analyzes code in memory).</p></div></a>
+        <div class="exp-item rise"><div class="exp-when">2024 → 2025</div><div><div class="exp-role">Full-Stack · Freelance <span>· Health-care</span></div><p class="exp-desc">Delivered a full educational platform in Next.js: front and back end. Optimized performance and load times, built responsive, scalable interfaces.</p></div></a>
+        <div class="exp-item rise"><div class="exp-when">2023 → 2024</div><div><div class="exp-role">Front-End Developer <span>· No Country</span></div><p class="exp-desc">Designed and optimized the front-end for the MasterAula education platform. Built high-conversion landing pages, collaborated in agile teams on UX and quality.</p></div></a>
       </div>
     </div>
   </section>
@@ -489,6 +508,20 @@ var REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!('IntersectionObserver' in window) || REDUCED){ els.forEach(function(e){ e.classList.add('in'); }); return; }
   var io = new IntersectionObserver(function(en){ en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } }); }, {threshold:0.14, rootMargin:'0px 0px -6% 0px'});
   els.forEach(function(e){ io.observe(e); });
+})();
+
+(function(){
+  var bar=document.querySelector('.progress'); if(!bar||REDUCED) return;
+  var t=false;
+  function upd(){ var st=document.documentElement.scrollTop||document.body.scrollTop; var h=document.documentElement.scrollHeight-document.documentElement.clientHeight; bar.style.transform='scaleX('+(h>0?st/h:0)+')'; t=false; }
+  addEventListener('scroll', function(){ if(!t){ requestAnimationFrame(upd); t=true; } }, {passive:true}); upd();
+})();
+(function(){
+  if(REDUCED) return;
+  document.querySelectorAll('.mag').forEach(function(b){
+    b.addEventListener('pointermove', function(e){ var r=b.getBoundingClientRect(); b.style.transform='translate('+((e.clientX-(r.left+r.width/2))*0.25)+'px,'+((e.clientY-(r.top+r.height/2))*0.4)+'px)'; });
+    b.addEventListener('pointerleave', function(){ b.style.transform=''; });
+  });
 })();
 </script>
 </body>
