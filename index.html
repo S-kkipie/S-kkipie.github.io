@@ -374,6 +374,9 @@ a.win:hover .th{filter:none}
 .peek img{width:100%;height:100%;object-fit:cover}
 @media (hover:none){.peek{display:none}}
 .expo{margin-top:clamp(70px,9vw,120px)}
+.expo .c-head{position:relative;z-index:6;margin-bottom:clamp(110px,12vw,150px)!important}
+.expo .c-head .mono{display:inline-block;background:var(--bg);padding:6px 10px;border-radius:6px}
+@media (max-width:700px){.expo .c-head{margin-bottom:24px!important}}
 .expo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}
 .expo-col{display:flex;flex-direction:column;gap:12px;will-change:transform}
 .expo figure{border-radius:14px}
@@ -753,7 +756,7 @@ html:not(.js) .yr-copy>*{opacity:1;transform:none}
     <div class="route" id="routeList">
       <svg class="trail" id="trail" aria-hidden="true"><path class="ghost"/><path class="live"/></svg>
     </div>
-    <p class="route-more">More on <a href="https://github.com/S-kkipie" target="_blank" rel="noopener">github.com/S-kkipie</a> · Maia, Avalify, Brota, EcoTrace, LendLoop, CareerBoost, Agente DPA (ISO 27701).</p>
+    <p class="route-more">More on <a href="https://github.com/S-kkipie" target="_blank" rel="noopener">github.com/S-kkipie</a> · Penumbra, whoas, ccapi, Cortex Room, PUNCH, Boutik, La Doce, AIDO (Factored), Spring microservices, Maia, Brota, EcoTrace.</p>
   </div>
 </section>
 
@@ -1363,17 +1366,8 @@ else {
     ['https://centinela.aido.lat', 'Centinela', 'Autonomous agent over Colombia\'s public procurement. Cross-checks every tender against 9 official sources and flags suspicious awards with the evidence cited.', ['Cloudflare Agents', 'Durable Objects', 'Gemini'], 'centinela', '1st · GOV-TECH · live', 'Next.js · 9 sources'],
     ['#notes', 'Graph Context Protocol', 'TypeScript protocol and SDK for role-gated context between agents, with per-read provenance. Tested against A2A in a peer-reviewed paper.', ['TypeScript', 'MCP', 'A2A'], 'gcp', 'IJACSA paper', '2,475 runs · 6 models'],
     ['https://continuum-liart.vercel.app', 'Continuum', 'Knowledge continuity per organization: a graph of people, decisions and documents with hybrid search. An agent writes a memory dossier per team and an LLM judge approves it.', ['pgvector', 'Elysia', 'MCP', '530+ tests'], 'continuum', null, 'FLIT Hackathon 2026'],
-    ['https://github.com/S-kkipie/penumbra-solar-forecast', 'Penumbra', 'Hourly solar forecast for Belgium (~12 GW) from 8 weather models with calibrated bands. Matches the grid operator\'s official forecast over 575 out-of-sample days.', ['Python', 'Forecasting', 'DataNova 2026'], 'viz:penumbra', null, '~12 GW · 8 models'],
-    ['https://github.com/S-kkipie/whoas', 'whoas', 'A Go CLI that runs any CLI (gh, gcloud, wrangler, Claude Code and 60+ more) as the right account per command, project or AI agent. Encrypted identities, Homebrew.', ['Go', 'Open source', 'CLI'], 'viz:whoas', null, 'Homebrew · CI'],
-    ['https://github.com/S-kkipie/ccapi', 'ccapi', 'Turns a Claude Code session into an Anthropic-compatible API, with streaming, native tools and images.', ['TypeScript', 'Bun', 'Open source'], 'viz:ccapi', null, 'streaming · tools'],
     ['https://citogenesis.vercel.app', 'Citogenesis', 'Multi-agent audit of a scientific claim: follows every citation back to its source and flags the ones with none. Research Agents Hack, IIT Madras.', ['Multi-agent', 'RAG', 'Python'], 'citogenesis', null, 'IIT Madras'],
-    ['https://v3la-eta.vercel.app', 'VELA', 'Decentralized lending with on-chain identity and AI agents for informal entrepreneurs.', ['Solana', 'Anchor', 'Rust'], 'v3la', '1st · InnovaTechWeek', 'also 3rd in Peru · Dev3pack'],
-    ['https://github.com/S-kkipie/factored-hackathon-2026-AIDO', 'AIDO · banking agent', 'AI-first customer service for a LATAM bank in Spanish and Portuguese: the model understands and writes, deterministic code decides and acts. Factored AI & Data Hackathon 2026, design complete, build in progress.', ['LLM agents', 'Python', 'Banking'], null, null, 'team AIDO · Factored 2026'],
-    ['https://cortex-room-eight.vercel.app', 'Cortex Room', 'Real-time meeting intelligence: a bot joins your Google Meet, transcribes live with speaker attribution and Gemini turns it into notes as it happens.', ['Durable Objects', 'Recall.ai', 'Gemini'], null, null, 'live · SSE'],
-    ['https://punch-sepia.vercel.app', 'PUNCH', 'A loyalty coalition that lets independent coffee shops compete like a chain: pay the café by Yape, earn PUNCH, redeem in any member café.', ['Solidity', 'Next.js', 'Yape'], null, null, 'Arbitrum hackathon · live'],
-    ['https://github.com/S-kkipie/boutik', 'Boutik', 'Lightning till and credit notebook for Dakar corner shops, priced in FCFA, in a ~15 KB web app with an AI assistant. CI runs the full flow against real LND nodes.', ['Lightning', 'LND', 'PWA'], null, null, 'Dakar Bitcoin Hack 2026'],
-    ['https://github.com/S-kkipie/La12', 'La Doce', 'Football club tokenization: fans fund their club and earn a share of its revenue in USDt, with self-custody wallets and no middleman.', ['Web3', 'USDt', 'Next.js'], null, null, 'Tether Developers Cup'],
-    ['https://github.com/S-kkipie/spring-microservices-platform', 'Spring microservices', 'Spring Boot / Spring Cloud platform: Eureka discovery, multi-tenant identity, tenant, inventory and LDAP services, consolidated in one monorepo.', ['Java', 'Spring Cloud', 'Eureka'], null, null, 'multi-tenant']
+    ['https://v3la-eta.vercel.app', 'VELA', 'Decentralized lending with on-chain identity and AI agents for informal entrepreneurs.', ['Solana', 'Anchor', 'Rust'], 'v3la', '1st · InnovaTechWeek', 'also 3rd in Peru · Dev3pack']
   ];
   $('#routeList').insertAdjacentHTML('beforeend', PROJ.map(([href, t, d, tags, img, award, meta], i) =>
     `<a class="wp" href="${href}" ${href[0] === '#' ? '' : 'target="_blank" rel="noopener"'} data-b="frame" data-l="${t}">
